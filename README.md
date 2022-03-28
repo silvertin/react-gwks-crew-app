@@ -39,8 +39,10 @@
 
 ## 📎 Version
 - Node: LTS 16(16.13.2)
-- TypeScript: 4.6.2
-- reactstrap: 9.0.1
+- [TypeScript](https://www.typescriptlang.org/docs/): 4.6.2
+- [reactstrap](https://reactstrap.github.io/?path=/story/home-installation--page): 9.0.1
 - bootstrap: 5.1.3
-- react-router: 6.2.2
-- styled-components: 5.3
+- [react-router](https://reactrouter.com/): 6.2.2
+- [styled-components](https://styled-components.com): 5.3
+
+
