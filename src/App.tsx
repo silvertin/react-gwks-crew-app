@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
 import HomePage from './pages/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
+import Header from './layout/Header';
 
 
 const Wrapper = styled(Container)`
@@ -110,7 +111,7 @@ function App() {
             <PlatformContainer id="mainWrapper">
                 <MainSection>
                     <header>
-                        Nav Bar
+                        <Header />
                     </header>
                     <main>
                         <Routes>
