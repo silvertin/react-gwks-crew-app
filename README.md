@@ -33,6 +33,10 @@
   - [ ] 크루 상세 화면 (화면 및 통신)
   - [ ] 크루 신청 화면 (화면 및 통신) *(2차로 넘길 가능성 있음)*
 
+## 🛠 TOOLS
+- Chrome extension
+  - React Developer Tools
+
 ## 📎 Version
 - Node: LTS 16(16.13.2)
 - TypeScript: 4.6.2
