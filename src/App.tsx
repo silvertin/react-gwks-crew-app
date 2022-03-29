@@ -1,141 +1,114 @@
 import React from 'react';
 import {Route, Routes } from 'react-router-dom';
-import { Container } from 'reactstrap';
 import styled from 'styled-components';
 import CrewListPage from './pages/CrewListPage';
 import LoginPage from './pages/LoginPage';
-import MainPage from './pages/MainPage';
 import HomePage from './pages/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
-import Header from './layout/Header';
+import './assets/css/main.scss';
+import {Button, ButtonGroup } from 'reactstrap';
 
-
-const Wrapper = styled(Container)`
+const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
+  overflow: hidden;
+`
+
+const CrewSection = styled.div`
+  width: 100%;
+`
+
+const AdsContainer = styled(CrewSection)`
   @media screen and (max-width: 1280px) {
-    background-image: none;
-    #adsWrapper {
-      display: none;
-    }
+    display: none;
   }
 `
 
-const PlatformContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 75px 100px;
-`
-
-const MainSection = styled.main`
-  border: 1px;
-  border-style: solid;
-  border-color: #DDD;
-  position: relative;
+const MainContainer = styled(CrewSection)`
   display: block;
-  width: 390px;
-  height: 100%;
   header {
+    background: #FFF;
+    z-index: 1;
+    position: fixed;
+    padding: 10px 10px;
+    text-align: center;
+    top: 0;
     width: 100%;
     height: 50px;
-    background: #CCC;
+    
   }
   main {
-    height: calc(100% - 130px);
-    background: #DDD;
-    overflow: hidden;
+    color: var(--bs-white);
+    width: 100%;
+    margin-top: 50px;
+    position: relative;
+    background: #222;
+    overflow: scroll;
   }
   footer {
     width: 100%;
-    height: 80px;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
     display: flex;
-    div{
-      position: relative;
-      display: grid;
-      justify-content: center;
-      align-content: center;
-      width: 100%;
-      height: 100%;
-      border: 1px;
-      border-color: blue;
-      border-style: solid;
-      font-size: 30px;
-      padding: 10px;
-      p {
-        margin-bottom: 0px;
-        font-size: 10px;
-      }
-    }
+    justify-content: space-between;
+    background: #FFF;
+    z-index: 1;
   }
 `
 
-const AdsSection = styled.section`
-  position: relative;
-  display: block;
-  background-color: #DDD;
+const MainButtonGroup = styled.div`
   width: 100%;
-  height: 100%;
-  div {
-    display: grid;
-    position: absolute;
+  height: 50px;
+  display: flex;
+  a {
+    text-decoration: none;
+    text-align: center;
     width: 100%;
-    justify-content: center;
-    align-content: center;
-  }
-  div#commingSoon {
-    height: 150px;
+    font-size: 20px;
+    color: var(--grey-dark);
+    p {
+      padding-top: 0px;
+      font-size: 10px;
+    }
   }
 `
 
 function App() {
+  const innerHeight = window.innerHeight;
   return (
     <div className="App">
-        <Wrapper
-            id="wrapper"
-            className="bg-light border"
-            fluid
-        >
-            <PlatformContainer id="adsWrapper">
-                <AdsSection>
-                    <div id="commingSoon">
-                        <h3>💡 앱 출시 예정</h3>
-                    </div>
-                </AdsSection>
-            </PlatformContainer>
-            <PlatformContainer id="mainWrapper">
-                <MainSection>
-                    <header>
-                        <Header />
-                    </header>
-                    <main>
-                        <Routes>
-                            <Route path={"/"} element={<HomePage />} />
-                            <Route path={"/list"} element={<CrewListPage />} />
-                            <Route path={"/login"} element={<LoginPage />} />
-                        </Routes>
-                    </main>
-                    <footer>
-                        <div>
-                            <TiThMenu />
-                            <p>List</p>
-                        </div>
-                        <div>
+        <Wrapper>
+            <AdsContainer>
+                💡 앱 출시 예정
+            </AdsContainer>
+            <MainContainer>
+                <header>
+                    <h3>광성마당 크루앱</h3>
+                </header>
+                <main>
+                    <Routes>
+                        <Route path={"/"} element={<HomePage />} />
+                        <Route path={"/list"} element={<CrewListPage />} />
+                        <Route path={"/login"} element={<LoginPage />} />
+                    </Routes>
+                </main>
+                <footer>
+                    <MainButtonGroup>
+                        <a href="#">
                             <TiHome />
-                            <p>Home</p>
-                        </div>
-                        <div>
+                            <p>HOME</p>
+                        </a>
+                        <a href="#">
+                            <TiThMenu />
+                            <p>LIST</p>
+                        </a>
+                        <a href="#">
                             <TiUserOutline />
-                            <p>MyPage</p>
-                        </div>
-                    </footer>
-                </MainSection>
-            </PlatformContainer>
+                            <p>MYPAGE</p>
+                        </a>
+                    </MainButtonGroup>
+                </footer>
+            </MainContainer>
         </Wrapper>
     </div>
   );
