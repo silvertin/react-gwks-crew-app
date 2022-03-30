@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes } from 'react-router-dom';
+import {Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import CrewListPage from './pages/CrewListPage';
 import LoginPage from './pages/LoginPage';
@@ -95,18 +95,18 @@ function App() {
                 </main>
                 <footer>
                     <MainButtonGroup>
-                        <a href="#">
+                        <Link to="/">
                             <TiHome />
                             <p>HOME</p>
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to="/list">
                             <TiThMenu />
                             <p>LIST</p>
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to="/main">
                             <TiUserOutline />
                             <p>MYPAGE</p>
-                        </a>
+                        </Link>
                     </MainButtonGroup>
                 </footer>
             </MainContainer>
