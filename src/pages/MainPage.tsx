@@ -1,11 +1,10 @@
+import Header from "../layout/Header";
 import { PageTagProps } from "./interface/PageInterface";
 
 const MainPage = (props: PageTagProps) => {
     return (
         <>
-            <header>
-                <h3>{props.title}</h3>
-            </header>
+            <Header title={props.title} />
             <main>
                 메인화면 입니다.
             </main>

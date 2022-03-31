@@ -4,15 +4,14 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import { PageTagProps } from "./interface/PageInterface";
+import Header from "../layout/Header";
 
 SwiperCore.use([Navigation, Pagination])
 
 const HomePage = (props: PageTagProps) => {
     return (
         <>
-            <header>
-                <h3>{props.title}</h3>
-            </header>
+            <Header title={props.title} />
             <main>
                 <Swiper
                     className="banner"
