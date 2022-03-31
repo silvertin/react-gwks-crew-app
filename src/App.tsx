@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
 import './assets/css/main.scss';
 import {Button, ButtonGroup } from 'reactstrap';
+import MainPage from './pages/MainPage';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -83,16 +84,12 @@ function App() {
                 💡 앱 출시 예정
             </AdsContainer>
             <MainContainer>
-                <header>
-                    <h3>광성마당 크루앱</h3>
-                </header>
-                <main>
-                    <Routes>
-                        <Route path={"/"} element={<HomePage />} />
-                        <Route path={"/list"} element={<CrewListPage />} />
-                        <Route path={"/login"} element={<LoginPage />} />
-                    </Routes>
-                </main>
+                <Routes>
+                    <Route path={"/"} element={<HomePage title="광성마을 크루앱" />} />
+                    <Route path={"/list"} element={<CrewListPage title="크루 목록" />} />
+                    <Route path={"/login"} element={<LoginPage title={"로그인"} />} />
+                    <Route path={"/main"} element={<MainPage title={"로그인"} />} />
+                </Routes>
                 <footer>
                     <MainButtonGroup>
                         <Link to="/">

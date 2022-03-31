@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Noto Sans CJK';
+  font-weight: 400;
+  src: url("../font/NotoSansCJKkr-Regular.otf");
+}
+
+body {
+  font-family: 'Noto Sans CJK' !important;
+}
+
 .App {
   background: #EFEFEF;
   width: 100%;

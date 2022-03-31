@@ -1,7 +1,14 @@
-const LoginPage = ({props}:any) => {
+import { PageTagProps } from "./interface/PageInterface";
+
+const LoginPage = (props: PageTagProps) => {
     return (
         <>
-            로그인 페이지
+            <header>
+                <h3>{props.title}</h3>
+            </header>
+            <main>
+                로그인
+            </main>
         </>
     )
 }
