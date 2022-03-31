@@ -27,17 +27,6 @@ const AdsContainer = styled(CrewSection)`
 
 const MainContainer = styled(CrewSection)`
   display: block;
-  header {
-    background: #FFF;
-    z-index: 1;
-    position: fixed;
-    padding: 10px 10px;
-    text-align: center;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    
-  }
   main {
     color: var(--bs-white);
     width: 100%;
