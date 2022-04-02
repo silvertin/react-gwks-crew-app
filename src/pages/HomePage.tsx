@@ -16,20 +16,21 @@ const HomePage = (props: PageTagProps) => {
                 <Swiper
                     className="banner"
                     spaceBetween={50}
+                    centeredSlides={true}
                     slidesPerView={1}
                     loop={true}
                     pagination={{ clickable: true }}
                 >
-                    <SwiperSlide>
+                    <SwiperSlide style={{textAlign: 'center'}}>
                         <img src={"https://i.picsum.photos/id/995/388/450.jpg?hmac=wVsm3ShvQtdZlSwnHlfVLnultsYE5tsN85GNkofpEJU"} />
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide style={{textAlign: 'center'}}>
                         <img src={"https://i.picsum.photos/id/811/388/450.jpg?hmac=xNpNZ2_Rsw15SwXoYDR3UDwgcsqw93HisMCzSFmimqY"} />
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide style={{textAlign: 'center'}}>
                         <img src={"https://i.picsum.photos/id/250/388/450.jpg?hmac=C2e7MWQSfGbqAwjorn5l9EUX-q5L-d4Dx8ly8pasAyQ"} />
                     </SwiperSlide>
-                    <SwiperSlide>
+                    <SwiperSlide style={{textAlign: 'center'}}>
                         <img src={"https://picsum.photos/388/450"} />
                     </SwiperSlide>
                 </Swiper>

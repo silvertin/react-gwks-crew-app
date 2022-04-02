@@ -11,45 +11,69 @@ import MainPage from './pages/MainPage';
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   overflow: hidden;
 `
 
 const CrewSection = styled.div`
   width: 100%;
+  min-width: 50%;
 `
 
 const AdsContainer = styled(CrewSection)`
-  @media screen and (max-width: 1280px) {
+  display: block;
+  @media screen and (max-width: 1080px) {
     display: none;
+  }
+  div {
+    width: 100%;
   }
 `
 
 const MainContainer = styled(CrewSection)`
   display: block;
-  main {
-    color: var(--bs-white);
-    width: 100%;
-    margin-top: 50px;
+  .mainWrapper {
+    display: block;
     position: relative;
-    background: #222;
-    overflow: scroll;
-    padding: 10px 10px;
-  }
-  footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    display: flex;
-    justify-content: space-between;
-    background: #FFF;
-    z-index: 1;
+    width: 720px;
+    height: 100%;
+    main {
+      color: var(--bs-white);
+      width: 100%;
+      max-width: 720px;
+      position: relative;
+      background: #222;
+      overflow: scroll;
+      padding: 10px 10px;
+    }
+    footer {
+      width: 100%;
+      max-width: 720px;
+      height: 50px;
+      bottom: 0px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--bs-white);
+      position: fixed;
+      background: #222;
+      z-index: 1;
+    }
+    @media screen and (max-width: 1080px) {
+      width: 100%;
+      main {
+        max-width: none;
+      }
+      footer {
+        max-width: none;
+      }
+    }
   }
 `
 
 const MainButtonGroup = styled.div`
   width: 100%;
-  height: 50px;
+  height: 100%;
   display: flex;
   a {
     text-decoration: none;
@@ -65,36 +89,37 @@ const MainButtonGroup = styled.div`
 `
 
 function App() {
-  const innerHeight = window.innerHeight;
   return (
     <div className="App">
         <Wrapper>
             <AdsContainer>
-                💡 앱 출시 예정
+                <div>💡 앱 출시 예정</div>
             </AdsContainer>
             <MainContainer>
-                <Routes>
-                    <Route path={"/"} element={<HomePage title="광성마을 크루앱" />} />
-                    <Route path={"/list"} element={<CrewListPage title="크루 목록" />} />
-                    <Route path={"/login"} element={<LoginPage title={"로그인"} />} />
-                    <Route path={"/main"} element={<MainPage title={"로그인"} />} />
-                </Routes>
-                <footer>
-                    <MainButtonGroup>
-                        <Link to="/">
-                            <TiHome />
-                            <p>HOME</p>
-                        </Link>
-                        <Link to="/list">
-                            <TiThMenu />
-                            <p>LIST</p>
-                        </Link>
-                        <Link to="/main">
-                            <TiUserOutline />
-                            <p>MYPAGE</p>
-                        </Link>
-                    </MainButtonGroup>
-                </footer>
+                <section className={"mainWrapper"}>
+                    <Routes>
+                        <Route path={"/"} element={<HomePage title="광성마을 크루앱" />} />
+                        <Route path={"/list"} element={<CrewListPage title="크루 목록" />} />
+                        <Route path={"/login"} element={<LoginPage title={"로그인"} />} />
+                        <Route path={"/main"} element={<MainPage title={"로그인"} />} />
+                    </Routes>
+                    <footer className={"mainFooter"}>
+                        <MainButtonGroup>
+                            <Link to="/">
+                                <TiHome />
+                                <p>HOME</p>
+                            </Link>
+                            <Link to="/list">
+                                <TiThMenu />
+                                <p>LIST</p>
+                            </Link>
+                            <Link to="/main">
+                                <TiUserOutline />
+                                <p>MYPAGE</p>
+                            </Link>
+                        </MainButtonGroup>
+                    </footer>
+                </section>
             </MainContainer>
         </Wrapper>
     </div>

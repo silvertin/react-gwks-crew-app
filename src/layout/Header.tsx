@@ -5,9 +5,8 @@ interface TitleProps {
 }
 
 const MainHeader = styled.header`
-  background: #FFF;
+  background: #EEE;
   z-index: 1;
-  position: fixed;
   padding: 10px 10px;
   text-align: center;
   top: 0;
