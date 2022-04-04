@@ -41,7 +41,7 @@ const MainContainer = styled(CrewSection)`
     width: 720px;
     height: 100%;
     main {
-      color: var(--bs-white);
+      color: var(--bs-gray-500);
       width: 100%;
       max-width: 720px;
       position: relative;
@@ -53,7 +53,7 @@ const MainContainer = styled(CrewSection)`
     footer {
       width: 100%;
       max-width: 720px;
-      height: 50px;
+      height: 60px;
       bottom: 0px;
       display: flex;
       justify-content: space-between;
