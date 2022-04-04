@@ -21,10 +21,10 @@ async function doTokenInfo() {
     const user = await Kakao.API.request({
         url: "/v2/user/me"
     });
-    sessionStorage.setItem("kakaoUserId", user.data.id);
-    sessionStorage.setItem("kakaoUserEmail", user.data.kakao_account.email);
-    sessionStorage.setItem("kakaoUserProfile", user.data.profile);
-
+    localStorage.setItem("kakaoUserId", user.id);
+    localStorage.setItem("kakaoUserEmail", user.kakao_account.email);
+    localStorage.setItem("kakaoUserProfile", user.kakao_account.profile.thumbnail_image_url);
+    window.close();
 }
 
 const KakaoRedirectPage = (props: PageTagProps) => {

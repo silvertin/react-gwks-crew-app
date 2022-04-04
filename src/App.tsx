@@ -46,8 +46,9 @@ const MainContainer = styled(CrewSection)`
       max-width: 720px;
       position: relative;
       background: #222;
-      overflow: scroll;
+      overflow: auto;
       padding: 10px 10px;
+      display: block;
     }
     footer {
       width: 100%;

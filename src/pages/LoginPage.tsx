@@ -4,14 +4,12 @@ import { PageTagProps } from "./interface/PageInterface";
 import KakaoLogin from '../assets/img/kakao_login.png'
 import styled from "styled-components";
 
-// function loginKakao ():void {
-//     const clientId = "5c7fe0d39ddd530bb8c5588ef3c1452a";
-//     const redirectUrl = "http://localhost:3000/accounts/kakao/login/callback/";
-// }
-
-
 function loginWithKakao() {
-    window.open(`/login/kakao`, "_blank", "width=500, height=800");
+    const childWindow = window.open(`/login/kakao`, "kakaoLogin",  "width=500, height=800");
+    // @ts-ignore
+    childWindow.addEventListener('unload', () => {
+        window.location.replace("/main");
+    });
 }
 
 const LoginPage = (props: PageTagProps) => {

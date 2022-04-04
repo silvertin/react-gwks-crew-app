@@ -1,18 +1,33 @@
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../layout/Header";
 import { PageTagProps } from "./interface/PageInterface";
 
 const MainPage = (props: PageTagProps) => {
-    const accessToken = sessionStorage.getItem("accessToken");
     const navigate = useNavigate();
-    if (accessToken == null) {
-        navigate(`/login`);
+    const profile = {
+        thumbnail_image_url: ""
     }
+    let userProfile = {
+        email: localStorage.getItem("kakaoUserEmail"),
+        profile: localStorage.getItem("kakaoUserProfile")
+    };
+    useEffect(() => {
+        const accessToken = localStorage.getItem("kakaoUserId");
+        if (accessToken == null) {
+            navigate(`/login`);
+        }
+    });
     return (
         <>
             <Header title={props.title} />
-            <main>
-                메인화면 입니다.
+            <main style={{textAlign: 'center'}}>
+                <div>
+                    <p>
+                        <img src={userProfile.profile || ''} alt="카카오톡 로그인 이미지"/>
+                    </p>
+                    <p><b>{userProfile.email}님</b>, 환영합니다.</p>
+                </div>
             </main>
         </>
     )
