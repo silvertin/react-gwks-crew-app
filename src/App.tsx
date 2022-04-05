@@ -3,7 +3,7 @@ import {Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import CrewListPage from './pages/CrewListPage';
 import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/home/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
 import './assets/css/main.scss';
 import {Button, ButtonGroup } from 'reactstrap';
@@ -41,12 +41,12 @@ const MainContainer = styled(CrewSection)`
     position: relative;
     width: 720px;
     height: 100%;
+    min-height: calc(100% - 50px);
     main {
-      color: var(--bs-gray-500);
       width: 100%;
       max-width: 720px;
       position: relative;
-      background: #222;
+      bottom: 50px;
       overflow: auto;
       padding: 10px 10px;
       display: block;

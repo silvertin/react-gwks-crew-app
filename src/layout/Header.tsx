@@ -8,6 +8,8 @@ const MainHeader = styled.header`
   background: #EEE;
   z-index: 1;
   padding: 10px 10px;
+  position: relative;
+  margin-bottom: 50px;
   text-align: center;
   top: 0;
   width: 100%;
