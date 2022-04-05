@@ -10,6 +10,7 @@ import {Button, ButtonGroup } from 'reactstrap';
 import MyPage from './pages/MyPage';
 import KakaoRedirectPage from './pages/Login/KakaoRedirectPage';
 import KakaoLoginPage from './pages/Login/KakaoLoginPage';
+import Test from './pages/Test';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -107,6 +108,7 @@ function App() {
                         <Route path={"/main"} element={<MyPage title={"내 정보"} />} />
                         <Route path={"/login/kakao"} element={<KakaoLoginPage title={"카카오 로그인 페이지"} />} />
                         <Route path={"/login/kakao/callback"} element={<KakaoRedirectPage title={"카카오 리다이렉트 페이지"} />} />
+                        <Route path={"/test"} element={<Test />} /> 
                     </Routes>
                     <footer className={"mainFooter"}>
                         <MainButtonGroup>
