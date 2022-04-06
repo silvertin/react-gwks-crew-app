@@ -6,7 +6,7 @@ import { getLoginInfo} from "../../api/LoginApi";
 
 async function doTokenInfo() {
     const code = new URL(window.location.href).searchParams.get("code");
-    const result = await axiosPostRequest("https://kauth.kakao.com/oauth/token", {},{
+    const result = await axiosPostRequest("https://kauth.kakao.com/oauth/token",{
         grant_type: "authorization_code",
         client_id: "5c7fe0d39ddd530bb8c5588ef3c1452a",
         redirect_uri: "http://localhost:3000/login/kakao/callback/",

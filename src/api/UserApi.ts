@@ -19,23 +19,17 @@ interface User {
 }
 
 export const getUserList = async () => {
-    const result = await axiosGetRequest(`http://20.214.185.3/apis/user/`, {});
+    const result = await axiosGetRequest(`/user`);
     return result.data;
 }
 
 export const getUserDetail = async (pk:number) => {
-    const result = await axiosGetRequest('http://20.214.185.3/apis/user/<int:pk>',{});
+    const result = await axiosGetRequest(`/user/${pk}`);
     return result.data;
 }
 
 export const patchUserDetail = async (pk:number, data: any, accesstoken:string) => {
-    // var data = new FormData()
-
-    // data.append('name': "은석")
-    // data.append('birthyear': 87)
-    // data.append('community': "신혼브릿지")
     const headers = {"Content-Type": "multipart/form-data","Authorization" : "Bearer "+accesstoken }
-
-    const result = await axiosPatchRequest('http://20.214.185.3/apis/user/<int:pk>',headers,data);
+    const result = await axiosPatchRequest(`/user/${pk}`,data);
     return result.data;
 }

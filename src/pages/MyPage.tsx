@@ -13,7 +13,7 @@ const MainPage = (props: PageTagProps) => {
         profile: localStorage.getItem("kakaoUserProfile")
     };
     useEffect(() => {
-        const accessToken = localStorage.getItem("kakaoUserId");
+        const accessToken = localStorage.getItem("access_token");
         if (accessToken == null) {
             navigate(`/login`);
         }

@@ -1,4 +1,4 @@
-import { Col, Card, CardBody, CardText, Row, CardImg } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import styled from "styled-components";
 import NoImage from '../../assets/img/no-image-found-360x250-1-300x208.png'
 
@@ -35,7 +35,7 @@ const CrewList = (props: any) => {
         const coupleList = [] as any;
         if (props.crewList[i] != null) {
             coupleList[0] = (
-                <Col>
+                <Col key={props.crewList[i]}>
                     <CustomCard style={
                         {
                             "backgroundImage": `url(${props.crewList[i].image || NoImage})`,
@@ -54,7 +54,7 @@ const CrewList = (props: any) => {
         i++;
         if (props.crewList[i] != null) {
             coupleList[1] = (
-                <Col>
+                <Col key={props.crewList[i]}>
                     <CustomCard style={
                         {
                             "backgroundImage": `url(${props.crewList[i].image_thumbnail || NoImage})`,
