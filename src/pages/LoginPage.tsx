@@ -15,12 +15,13 @@ const LoginPage = (props: PageTagProps) => {
     useEffect(() => {
         const accessToken = StorageUtil.local.getAccessToken();
         const status = StorageUtil.local.getItem("status");
-        console.log(status)
-        if (status == "new") {
+        if (status === "new") {
             navigate("/join");
+            return;
         }
         if (accessToken != null) {
             navigate("/mypage");
+            return;
         }
 
     });

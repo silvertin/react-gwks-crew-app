@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { StorageUtil } from "../config/BrowserUtil";
-import Header from "../layout/Header";
-import { PageTagProps } from "./interface/PageInterface";
+import { StorageUtil } from "../../config/BrowserUtil";
+import Header from "../../layout/Header";
+import { PageTagProps } from "../interface/PageInterface";
 
 const MainPage = (props: PageTagProps) => {
     const navigate = useNavigate();

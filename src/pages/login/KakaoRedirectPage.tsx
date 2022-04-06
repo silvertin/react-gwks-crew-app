@@ -3,6 +3,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { axiosPostRequest } from "../../config/AxiosConfig";
 import { PageTagProps } from "../interface/PageInterface";
 import { getLoginInfo} from "../../api/LoginApi";
+import { StorageUtil } from "../../config/BrowserUtil";
 
 async function doTokenInfo() {
     const code = new URL(window.location.href).searchParams.get("code");
@@ -15,12 +16,11 @@ async function doTokenInfo() {
     });
     const {access_token, expires_in, refresh_token, refresh_token_expires_in} = result.data;
     const userdata = await getLoginInfo(access_token);
-    localStorage.setItem("access_token", userdata.access_token);
-    localStorage.setItem("refresh_token", userdata.refresh_token);
-    localStorage.setItem("userid", userdata.user.pk);
-    localStorage.setItem("email", userdata.user.email);
-    localStorage.setItem("status", userdata.status);
-
+    StorageUtil.local.setItem("access_token", userdata.access_token);
+    StorageUtil.local.setItem("refresh_token", userdata.refresh_token);
+    StorageUtil.local.setItem("userid", userdata.user.pk);
+    StorageUtil.local.setItem("email", userdata.user.email);
+    StorageUtil.local.setItem("status", userdata.status);
     // @ts-ignore
     window.opener.location.reload();
     window.close();

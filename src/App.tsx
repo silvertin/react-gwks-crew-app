@@ -7,7 +7,7 @@ import HomePage from './pages/home/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
 import './assets/css/main.scss';
 import {Button, ButtonGroup } from 'reactstrap';
-import MyPage from './pages/MyPage';
+import MyPage from './pages/mypage/MyPage';
 import KakaoRedirectPage from './pages/login/KakaoRedirectPage';
 import KakaoLoginPage from './pages/login/KakaoLoginPage';
 import Test from './pages/Test';
