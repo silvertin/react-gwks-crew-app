@@ -34,12 +34,13 @@ export async function axiosGetRequest(url: string, params: any) {
 }
 
 
-export async function axiosPostRequest(url: string, params: any) {
+export async function axiosPostRequest(url: string, headers: any, params: any) {
     const axiosInstance = await axioxMainInstance();
     const axios = await axiosInstance.getInstance();
     return await axios.request({
         url: url,
         method: "POST",
+        headers: headers,
         params: params
     })
 }
@@ -52,6 +53,18 @@ export async function axiosPutRequest(url: string, params: any) {
         url: url,
         method: "PUT",
         params: params
+    })
+}
+
+
+export async function axiosPatchRequest(url: string, headers: any, data: any) {
+    const axiosInstance = await axioxMainInstance();
+    const axios = await axiosInstance.getInstance();
+    return await axios.request({
+        url: url,
+        method: "PATCH",
+        headers: headers,
+        data: data,
     })
 }
 

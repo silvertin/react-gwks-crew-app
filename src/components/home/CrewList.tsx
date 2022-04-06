@@ -57,7 +57,7 @@ const CrewList = (props: any) => {
                 <Col>
                     <CustomCard style={
                         {
-                            "backgroundImage": `url(${props.crewList[i].image || NoImage})`,
+                            "backgroundImage": `url(${props.crewList[i].image_thumbnail || NoImage})`,
                         }}
                     >
                         <div className={"title"}>
