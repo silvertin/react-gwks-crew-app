@@ -14,28 +14,16 @@ async function doTokenInfo() {
         client_secret: "IwKQJvbH6UN40GOyG6VWSCKrPVBcIUic",
     });
     const {access_token, expires_in, refresh_token, refresh_token_expires_in} = result.data;
-
     const userdata = await getLoginInfo(access_token);
-
     localStorage.setItem("access_token", userdata.access_token);
     localStorage.setItem("refresh_token", userdata.refresh_token);
     localStorage.setItem("userid", userdata.user.pk);
     localStorage.setItem("email", userdata.user.email);
     localStorage.setItem("status", userdata.status);
-    window.close()
-
 
     // @ts-ignore
-    // const { Kakao } = globalThis;
-    // Kakao.Auth.setAccessToken(access_token);
-    //
-    // const user = await Kakao.API.request({
-    //     url: "/v2/user/me"
-    // });
-    // localStorage.setItem("kakaoUserId", user.id);
-    // localStorage.setItem("kakaoUserEmail", user.kakao_account.email);
-    // localStorage.setItem("kakaoUserProfile", user.kakao_account.profile.thumbnail_image_url);
-    // window.close();
+    window.opener.location.reload();
+    window.close();
 }
 
 const KakaoRedirectPage = (props: PageTagProps) => {

@@ -8,9 +8,10 @@ import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
 import './assets/css/main.scss';
 import {Button, ButtonGroup } from 'reactstrap';
 import MyPage from './pages/MyPage';
-import KakaoRedirectPage from './pages/Login/KakaoRedirectPage';
-import KakaoLoginPage from './pages/Login/KakaoLoginPage';
+import KakaoRedirectPage from './pages/login/KakaoRedirectPage';
+import KakaoLoginPage from './pages/login/KakaoLoginPage';
 import Test from './pages/Test';
+import SignUpPage from './pages/join/SignUpPage';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -105,10 +106,11 @@ function App() {
                         <Route path={"/"} element={<HomePage title="광성마을 크루앱" />} />
                         <Route path={"/list"} element={<CrewListPage title="크루 목록" />} />
                         <Route path={"/login"} element={<LoginPage title={"로그인"} />} />
-                        <Route path={"/main"} element={<MyPage title={"내 정보"} />} />
+                        <Route path={"/join"} element={<SignUpPage title={"회원가입"} />} />
+                        <Route path={"/mypage"} element={<MyPage title={"내 정보"} />} />
                         <Route path={"/login/kakao"} element={<KakaoLoginPage title={"카카오 로그인 페이지"} />} />
                         <Route path={"/login/kakao/callback"} element={<KakaoRedirectPage title={"카카오 리다이렉트 페이지"} />} />
-                        <Route path={"/test"} element={<Test />} /> 
+                        <Route path={"/test"} element={<Test />} />
                     </Routes>
                     <footer className={"mainFooter"}>
                         <MainButtonGroup>
@@ -120,7 +122,7 @@ function App() {
                                 <TiThMenu />
                                 <p>LIST</p>
                             </Link>
-                            <Link to="/main">
+                            <Link to="/mypage">
                                 <TiUserOutline />
                                 <p>MYPAGE</p>
                             </Link>

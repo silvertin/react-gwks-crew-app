@@ -31,12 +31,8 @@ function getAccessToken () {
 export async function axiosGetRequest(url: string, params?: {}) {
     const axiosInstance = await axioxMainInstance();
     const axios = await axiosInstance.getInstance();
-    console.log(getAccessToken())
     return await axios.request({
         url: url,
-        headers: {
-            "Authorization" : `Bearer ${getAccessToken()}`
-        },
         method: "GET",
         params: params
     })

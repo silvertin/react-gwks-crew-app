@@ -2,17 +2,28 @@ import { Button } from "reactstrap";
 import Header from "../layout/Header";
 import { PageTagProps } from "./interface/PageInterface";
 import KakaoLogin from '../assets/img/kakao_login.png'
-import styled from "styled-components";
+import { StorageUtil } from "../config/BrowserUtil";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function loginWithKakao() {
-    const childWindow = window.open(`/login/kakao`, "kakaoLogin",  "width=500, height=800");
-    // @ts-ignore
-    childWindow.addEventListener('unload', () => {
-        window.location.replace("/main");
-    });
+    window.open(`/login/kakao`, "kakaoLogin",  "width=500, height=800");
 }
 
 const LoginPage = (props: PageTagProps) => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        const accessToken = StorageUtil.local.getAccessToken();
+        const status = StorageUtil.local.getItem("status");
+        console.log(status)
+        if (status == "new") {
+            navigate("/join");
+        }
+        if (accessToken != null) {
+            navigate("/mypage");
+        }
+
+    });
     return (
         <>
             <Header title={props.title} />

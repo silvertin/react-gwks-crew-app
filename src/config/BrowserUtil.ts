@@ -5,6 +5,8 @@ export const StorageUtil = {
     },
     local: {
         getItem: (key: string) => localStorage.getItem(key),
-        setItem: (key: string, value: string) => localStorage.setItem(key, value)
+        setItem: (key: string, value: string) => localStorage.setItem(key, value),
+        getAccessToken: () => localStorage.getItem("access_token"),
+        logout: () => localStorage.clear()
     }
 }
