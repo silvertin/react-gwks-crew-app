@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import {Badge, Button, Input, ListGroup, ListGroupItem} from "reactstrap";
-import Header from "../layout/Header";
-import { PageTagProps } from "./interface/PageInterface";
-import NoImage from '../assets/img/no-image-found-360x250-1-300x208.png';
-import { getCrewDetail } from "../api/CrewApi";
+import Header from "../../layout/Header";
+import { PageTagProps } from "../interface/PageInterface";
+import NoImage from '../../assets/img/no-image-found-360x250-1-300x208.png';
+import { getCrewDetail } from "../../api/CrewApi";
 import React, {useState} from "react";
 
 const CrewTitle = styled.div`

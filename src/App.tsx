@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import CrewListPage from './pages/CrewListPage';
+import CrewListPage from './pages/crew/CrewListPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/home/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
@@ -12,7 +12,7 @@ import KakaoRedirectPage from './pages/login/KakaoRedirectPage';
 import KakaoLoginPage from './pages/login/KakaoLoginPage';
 import Test from './pages/Test';
 import SignUpPage from './pages/join/SignUpPage';
-import CrewDetailPage from './pages/CrewDetailPage';
+import CrewDetailPage from './pages/crew/CrewDetailPage';
 
 const Wrapper = styled.div`
   width: 100%;

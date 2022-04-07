@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import {Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import styled from "styled-components";
-import { getCrewList } from "../api/CrewApi";
-import Header from "../layout/Header";
-import { PageTagProps } from "./interface/PageInterface";
+import { getCrewList } from "../../api/CrewApi";
+import Header from "../../layout/Header";
+import { PageTagProps } from "../interface/PageInterface";
 
 const CrewCart = styled(Card)`
   margin-bottom: 10px;
