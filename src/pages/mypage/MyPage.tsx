@@ -39,6 +39,16 @@ const MainPage = (props: PageTagProps) => {
             <Header title={props.title} />
             <main>
                 <div>
+                    <div>
+                        {status === "new" ?
+                            <div style={{"textAlign": "center", "marginBottom": "10px"}}>
+                                <p>Oops! 회원가입을 마무리 하지 못했군요?</p>
+                                <Button color={"primary"} onClick={e => doJoin()}>회원가입</Button>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>
                     <Card>
                         <CardBody>
                             <CardText>
@@ -60,16 +70,9 @@ const MainPage = (props: PageTagProps) => {
                             </div>
                         </CardBody>
                     </Card>
-                    <div>
-                        {status === "new" ?
-                            <>
-                                <p>Oops! 회원가입을 마무리 하지 못했군요?</p>
-                                <Button color={"primary"} onClick={e => doJoin()}>회원가입</Button>
-                            </>
-                            :
-                            <div></div>
-                        }
-                    </div>
+                </div>
+                <div style={{"float": "right", "marginTop": "5px", "bottom": "50px"}}>
+                    <p style={{"fontSize":"11px", "color": "#ced4da", "fontStyle": "italic"}}>Created By. Street Coding Crew</p>
                 </div>
             </main>
         </>

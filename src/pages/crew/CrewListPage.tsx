@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap";
+import {Badge, Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import styled from "styled-components";
 import { getCrewList } from "../../api/CrewApi";
 import { getUserList } from "../../api/UserApi";
@@ -46,7 +46,7 @@ const CrewListPage = (props: PageTagProps) => {
                                     {item.email}
                                 </CardSubtitle>
                                 <CardText>
-                                    {FindCommunity(item.community)}
+                                    <Badge>{FindCommunity(item.community)}</Badge>
                                 </CardText>
                             </CardBody>
                         </CrewCart>
