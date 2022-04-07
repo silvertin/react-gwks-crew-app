@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 import styled from "styled-components";
 import NoImage from '../../assets/img/no-image-found-360x250-1-300x208.png'
@@ -42,7 +43,7 @@ const CrewList = (props: any) => {
                         }}
                     >
                         <div className={"title"}>
-                            {props.crewList[i].name}
+                            <Link to={`/crew_detail?id=${props.crewList[i].id}`}>{props.crewList[i].name}</Link>
                         </div>
                         <div className={"desc"}>
                             {props.crewList[i].abstract}
@@ -61,7 +62,7 @@ const CrewList = (props: any) => {
                         }}
                     >
                         <div className={"title"}>
-                            {props.crewList[i].name}
+                            <Link to={`/crew_detail?id=${props.crewList[i].id}`}>{props.crewList[i].name}</Link>
                         </div>
                         <div className={"desc"}>
                             {props.crewList[i].abstract}

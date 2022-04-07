@@ -50,6 +50,7 @@ const MainContainer = styled(CrewSection)`
       position: relative;
       bottom: 50px;
       overflow: auto;
+      overflow-x: hidden;
       padding: 10px 10px;
       display: block;
     }
