@@ -23,6 +23,7 @@ const getClassList = () => {
 }
 
 const SignUpPage = (props: PageTagProps) => {
+    const navigate = useNavigate();
     const email = StorageUtil.local.getItem("email") || null;
     const [userEmail, setUserEmail] = useState(email as any);
     const [userName, setUserName] = useState("");
@@ -32,7 +33,7 @@ const SignUpPage = (props: PageTagProps) => {
 
     const DoCancelJoin = () => {
         if (window.confirm("가입을 취소하시겠습니다?😥 \n괜찮아요, 다시 가입할수 있어요")) {
-            window.location.replace("/");
+            navigate("/");
         }
     };
 
@@ -42,7 +43,7 @@ const SignUpPage = (props: PageTagProps) => {
         const isAccess = joinService.doValidation(user);
         if (isAccess) {
             if (window.confirm("가입을 승인하시겠습니다?")) {
-                alert("통신함!");
+                navigate("/");
             }
         }
     }
@@ -51,9 +52,12 @@ const SignUpPage = (props: PageTagProps) => {
             <Header title={props.title} />
             <main>
                 <div>
-                    <p style={{"marginTop": "50px"}}>
-                        청년마을 크루앱을 사용하기 위한 회원가입을 진행해주세요.
-                    </p>
+                    <div style={{"marginTop": "50px","width": "100%", "textAlign": "center"}}>
+                        <p>
+                            청년마을 크루앱을 사용하기 위한 <br />
+                            회원가입을 진행해주세요.
+                        </p>
+                    </div>
                     <SignUpWrapper>
                         <FormGroup>
                             <Label for="userEmail">
@@ -122,7 +126,7 @@ const SignUpPage = (props: PageTagProps) => {
                             />
                         </FormGroup>
                         <div style={{"textAlign": "center", "marginTop": "50px"}}>
-                            <Button onClick={ e => DoCancelJoin()} style={{"width": "130px"}}> 취소 </Button>
+                            <Button onClick={e => DoCancelJoin()} style={{"width": "130px"}}> 취소 </Button>
                             &emsp;&emsp;
                             <Button onClick={e => DoAgreeJoin()} style={{"width": "130px"}} color={"primary"}> 가입하기 </Button>
                         </div>

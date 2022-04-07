@@ -17,13 +17,10 @@ const LoginPage = (props: PageTagProps) => {
         const status = StorageUtil.local.getItem("status");
         if (status === "new") {
             navigate("/join");
-            return;
         }
         if (accessToken != null) {
             navigate("/mypage");
-            return;
         }
-
     });
     return (
         <>
