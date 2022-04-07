@@ -113,7 +113,7 @@ function App() {
                         <Route path={"/login/kakao"} element={<KakaoLoginPage title={"카카오 로그인 페이지"} />} />
                         <Route path={"/login/kakao/callback"} element={<KakaoRedirectPage title={"카카오 리다이렉트 페이지"} />} />
                         <Route path={"/test"} element={<Test />} />
-                        <Route path={"/crew_detail"} element={<CrewDetailPage title={"크루 상세설명"} />} />
+                        <Route path={"/crew_detail/:id"} element={<CrewDetailPage title={"크루 상세설명"} />} />
                     </Routes>
                     <footer className={"mainFooter"}>
                         <MainButtonGroup>

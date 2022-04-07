@@ -24,7 +24,10 @@ export const getCrewList = async () => {
 }
 
 export const getCrewDetail = async (pk:number) => {
-    const result = await axiosGetRequest('http://20.214.185.3/apis/crew/<int:pk>',{});
+    // '/crew/' + pk
+    // `/crew/${pk}`
+    const result = await axiosGetRequest(`/crew/${pk}`,{});
+    return result.data;
 }
 
 export const postCrewJoin = async (pk:number, data:any, accesstoken:string) => {

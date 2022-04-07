@@ -4,12 +4,19 @@ import Header from "../../layout/Header";
 import { PageTagProps } from "../interface/PageInterface";
 import NoImage from '../../assets/img/no-image-found-360x250-1-300x208.png';
 import { getCrewDetail } from "../../api/CrewApi";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import { useParams } from 'react-router';
 
 const CrewTitle = styled.div`
  height : 50px;
+  width: 100%;
  font-size : 30px;
  margin-bottom: 10px;
+  border:1px;
+  border-style: solid;
+  border-color: red;
+  display: flex;
+  justify-content: space-between;
 `
 const CrewShotExplain = styled.div`
   height : 40px;
@@ -56,28 +63,46 @@ const getClassList2 = () => {
 
 
 const CrewDetailPage = (props: PageTagProps) => {
+    const params = useParams();
     const [scheduleClass, setScheduleClass] = useState(1);
     const [dayClass, setDayClass] = useState(1);
+    const [userData, setUserData] = useState({} as any);
+    useEffect(()  => {
+        const fetchData = async () => {
+            const data = await getCrewDetail(Number(params.id));
+            setUserData(data);
+        }
+        fetchData();
+    }, []);
+
+
     return (
         <div>
             <Header title={props.title} />
             <main>
                 <CrewTitle>
-                    크루명
+                    <div>
+                        크루명
+                    </div>
+                    <div>
                         <Button
                             color="danger"
                             size=""
                             variant="contained"
-                            style={{float: 'right'}}
                             className="float-right"
                         >
                             신청
                         </Button>
+                    </div>
                 </CrewTitle>
                 <CrewShotExplain>
                     "크루 한 줄 소개"
                 </CrewShotExplain>
                 <CrewDetailExplain>
+                    {JSON.stringify(userData)}
+                    <p>
+                        {userData.description}
+                    </p>
                     <p> 크루 소개(상세) <br />
                         크루 상세 설명과 사진 <br />
                         <img src={NoImage}/>

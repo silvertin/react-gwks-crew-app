@@ -43,7 +43,7 @@ const CrewList = (props: any) => {
                         }}
                     >
                         <div className={"title"}>
-                            <Link to={`/crew_detail?id=${props.crewList[i].id}`}>{props.crewList[i].name}</Link>
+                            <Link to={`/crew_detail/${props.crewList[i].id}`}>{props.crewList[i].name}</Link>
                         </div>
                         <div className={"desc"}>
                             {props.crewList[i].abstract}
@@ -62,7 +62,7 @@ const CrewList = (props: any) => {
                         }}
                     >
                         <div className={"title"}>
-                            <Link to={`/crew_detail?id=${props.crewList[i].id}`}>{props.crewList[i].name}</Link>
+                            <Link to={`/crew_detail/${props.crewList[i].id}`}>{props.crewList[i].name}</Link>
                         </div>
                         <div className={"desc"}>
                             {props.crewList[i].abstract}
