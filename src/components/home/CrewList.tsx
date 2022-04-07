@@ -36,7 +36,7 @@ const CrewList = (props: any) => {
         const coupleList = [] as any;
         if (props.crewList[i] != null) {
             coupleList[0] = (
-                <Col key={props.crewList[i]}>
+                <Col key={`crewCar${i}`}>
                     <CustomCard style={
                         {
                             "backgroundImage": `url(${props.crewList[i].image || NoImage})`,
@@ -55,7 +55,7 @@ const CrewList = (props: any) => {
         i++;
         if (props.crewList[i] != null) {
             coupleList[1] = (
-                <Col key={props.crewList[i]}>
+                <Col key={`crewCar${i}`}>
                     <CustomCard style={
                         {
                             "backgroundImage": `url(${props.crewList[i].image_thumbnail || NoImage})`,

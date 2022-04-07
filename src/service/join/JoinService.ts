@@ -1,18 +1,20 @@
+import { patchUserDetail } from "../../api/UserApi";
+
 interface User {
-    userEmail: string,
-    userName: string,
-    userClass: number,
-    userAgeBoundary: string,
-    nickName: String
+    email: string,
+    name: string,
+    community: number,
+    birthyear: string,
+    nickName: string
 }
 export default class JoinService {
 
     doValidation(params: User) {
-        if (params.nickName === '') {
+        if (params.name === '') {
             alert('이름을 입력하여 주세요.');
             return false;
         }
-        if (params.userAgeBoundary === '') {
+        if (params.birthyear === '') {
             alert("또래를 입력해주세요.");
             return false;
         }
@@ -20,6 +22,11 @@ export default class JoinService {
             alert("닉네임을 입력해주세요.");
             return false;
         }
+        return true;
+    }
+
+    async join(id:number, user: User) {
+        const result = await patchUserDetail(id, user);
         return true;
     }
 }

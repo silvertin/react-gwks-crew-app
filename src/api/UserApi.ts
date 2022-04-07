@@ -24,12 +24,15 @@ export const getUserList = async () => {
 }
 
 export const getUserDetail = async (pk:number) => {
-    const result = await axiosGetRequest(`/user/${pk}`);
+    const result = await axiosGetRequest(`/user/${pk}/`);
     return result.data;
 }
 
-export const patchUserDetail = async (pk:number, data: any, accesstoken:string) => {
-    const headers = {"Content-Type": "multipart/form-data","Authorization" : "Bearer "+accesstoken }
-    const result = await axiosPatchRequest(`/user/${pk}`,data);
+export const patchUserDetail = async (pk:number, data: any) => {
+    const formData = new FormData();
+    for(const key in data) {
+        formData.set(key, data[key]);
+    }
+    const result = await axiosPatchRequest(`/user/${pk}/`,formData);
     return result.data;
 }

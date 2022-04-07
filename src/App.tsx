@@ -13,6 +13,8 @@ import KakaoLoginPage from './pages/login/KakaoLoginPage';
 import Test from './pages/Test';
 import SignUpPage from './pages/join/SignUpPage';
 import CrewDetailPage from './pages/crew/CrewDetailPage';
+import { StorageUtil } from './config/BrowserUtil';
+import MyInfoPage from './pages/join/MyInfoPage';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -96,46 +98,47 @@ const MainButtonGroup = styled.div`
 `
 
 function App() {
-  return (
-    <div className="App">
-        <Wrapper>
-            <AdsContainer>
-                <div>💡 앱 출시 예정</div>
-            </AdsContainer>
-            <MainContainer>
-                <section className={"mainWrapper"}>
-                    <Routes>
-                        <Route path={"/"} element={<HomePage title="광성마을 크루앱" />} />
-                        <Route path={"/list"} element={<CrewListPage title="크루 목록" />} />
-                        <Route path={"/login"} element={<LoginPage title={"로그인"} />} />
-                        <Route path={"/join"} element={<SignUpPage title={"회원가입"} />} />
-                        <Route path={"/mypage"} element={<MyPage title={"내 정보"} />} />
-                        <Route path={"/login/kakao"} element={<KakaoLoginPage title={"카카오 로그인 페이지"} />} />
-                        <Route path={"/login/kakao/callback"} element={<KakaoRedirectPage title={"카카오 리다이렉트 페이지"} />} />
-                        <Route path={"/test"} element={<Test />} />
-                        <Route path={"/crew_detail/:id"} element={<CrewDetailPage title={"크루 상세설명"} />} />
-                    </Routes>
-                    <footer className={"mainFooter"}>
-                        <MainButtonGroup>
-                            <Link to="/">
-                                <TiHome />
-                                <p>HOME</p>
-                            </Link>
-                            <Link to="/list">
-                                <TiThMenu />
-                                <p>LIST</p>
-                            </Link>
-                            <Link to="/mypage">
-                                <TiUserOutline />
-                                <p>MYPAGE</p>
-                            </Link>
-                        </MainButtonGroup>
-                    </footer>
-                </section>
-            </MainContainer>
-        </Wrapper>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Wrapper>
+                <AdsContainer>
+                    <div>💡 앱 출시 예정</div>
+                </AdsContainer>
+                <MainContainer>
+                    <section className={"mainWrapper"}>
+                        <Routes>
+                            <Route path={"/"} element={<HomePage title="광성마을 크루앱" />} />
+                            <Route path={"/list"} element={<CrewListPage title="크루 회원" />} />
+                            <Route path={"/login"} element={<LoginPage title={"로그인"} />} />
+                            <Route path={"/join"} element={<SignUpPage title={"회원가입"} />} />
+                            <Route path={"/mypage/:userid"} element={<MyInfoPage title={"내 정보 수정"} />} />
+                            <Route path={"/mypage"} element={<MyPage title={"내 정보"} />} />
+                            <Route path={"/login/kakao"} element={<KakaoLoginPage title={"카카오 로그인 페이지"} />} />
+                            <Route path={"/login/kakao/callback"} element={<KakaoRedirectPage title={"카카오 리다이렉트 페이지"} />} />
+                            <Route path={"/test"} element={<Test />} />
+                            <Route path={"/crew_detail/:id"} element={<CrewDetailPage title={"크루 상세설명"} />} />
+                        </Routes>
+                        <footer className={"mainFooter"}>
+                            <MainButtonGroup>
+                                <Link to="/">
+                                    <TiHome />
+                                    <p>HOME</p>
+                                </Link>
+                                <Link to="/list">
+                                    <TiThMenu />
+                                    <p>LIST</p>
+                                </Link>
+                                <Link to="/mypage">
+                                    <TiUserOutline />
+                                    <p>MYPAGE</p>
+                                </Link>
+                            </MainButtonGroup>
+                        </footer>
+                    </section>
+                </MainContainer>
+            </Wrapper>
+        </div>
+    );
 }
 
 export default App;

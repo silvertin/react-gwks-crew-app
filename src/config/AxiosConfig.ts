@@ -73,6 +73,9 @@ export async function axiosPatchRequest(url: string, params?: {}) {
     return await axios.request({
         url: url,
         method: "PATCH",
+        headers: {
+            "Authorization" : `Bearer ${getAccessToken()}`
+        },
         data: params,
     })
 }

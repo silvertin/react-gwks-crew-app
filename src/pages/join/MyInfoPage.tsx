@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Button, FormGroup, FormText, Input, Label } from "reactstrap";
 import styled from "styled-components";
+import { getUserDetail } from "../../api/UserApi";
 import { StorageUtil } from "../../config/BrowserUtil";
 import { CommunityCode } from "../../enum/OperationCode";
 import Header from "../../layout/Header";
@@ -17,14 +18,29 @@ const getClassList = () => {
         .map((item, index) => (<option key={`option${index}`} value={item.value}>{item.text}</option>));
 }
 
-const SignUpPage = (props: PageTagProps) => {
+const MyInfoPage = (props: PageTagProps) => {
     const navigate = useNavigate();
-    const _email = StorageUtil.local.getItem("email") || null;
-    const [email, setEmail] = useState(_email as any);
+    const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [community, setCommunity] = useState(0);
     const [birthyear, setBirthyear] = useState("");
     const [nickName, setNickName] = useState("");
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const userId = StorageUtil.local.getId();
+            const userData = await getUserDetail(Number(userId));
+            setEmail(userData.email);
+            setName(userData.name);
+            setCommunity(userData.community);
+            setBirthyear(userData.birthyear);
+            setNickName(userData.nickName);
+        };
+
+        fetchData();
+    }, []);
+
+
 
     const DoCancelJoin = () => {
         if (window.confirm("가입을 취소하시겠습니다?😥 \n괜찮아요, 다시 가입할수 있어요")) {
@@ -37,7 +53,7 @@ const SignUpPage = (props: PageTagProps) => {
         const user = {email, name, community, birthyear, nickName};
         const isAccess = joinService.doValidation(user);
         if (isAccess) {
-            if (window.confirm("가입을 승인하시겠습니다?")) {
+            if (window.confirm("수정 하시겠습니까?")) {
                 const userId = StorageUtil.local.getItem("userid");
                 joinService.join(Number(userId), user);
                 navigate("/");
@@ -48,13 +64,8 @@ const SignUpPage = (props: PageTagProps) => {
         <React.Fragment>
             <Header title={props.title} />
             <main>
+
                 <div>
-                    <div style={{"marginTop": "50px","width": "100%", "textAlign": "center"}}>
-                        <p>
-                            청년마을 크루앱을 사용하기 위한 <br />
-                            회원가입을 진행해주세요.
-                        </p>
-                    </div>
                     <SignUpWrapper>
                         <FormGroup>
                             <Label for="userEmail">
@@ -125,7 +136,7 @@ const SignUpPage = (props: PageTagProps) => {
                         <div style={{"textAlign": "center", "marginTop": "50px"}}>
                             <Button onClick={e => DoCancelJoin()} style={{"width": "130px"}}> 취소 </Button>
                             &emsp;&emsp;
-                            <Button onClick={e => DoAgreeJoin()} style={{"width": "130px"}} color={"primary"}> 가입하기 </Button>
+                            <Button onClick={e => DoAgreeJoin()} style={{"width": "130px"}} color={"primary"}> 수정하기 </Button>
                         </div>
                     </SignUpWrapper>
                 </div>
@@ -134,4 +145,4 @@ const SignUpPage = (props: PageTagProps) => {
     )
 }
 
-export default SignUpPage;
+export default MyInfoPage;

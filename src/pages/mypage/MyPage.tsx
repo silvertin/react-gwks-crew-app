@@ -1,22 +1,34 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "reactstrap";
+import { Button, Card, CardBody, CardText } from "reactstrap";
+import { getUserDetail } from "../../api/UserApi";
 import { StorageUtil } from "../../config/BrowserUtil";
+import { CommunityCode } from "../../enum/OperationCode";
 import Header from "../../layout/Header";
 import { PageTagProps } from "../interface/PageInterface";
 
+const FindCommunity = (code: number) => {
+    return (CommunityCode.findById(code).text);
+}
+
 const MainPage = (props: PageTagProps) => {
     const navigate = useNavigate();
-    const userProfile = {
-        email: StorageUtil.local.getItem("email"),
-        status: StorageUtil.local.getItem("status")
-    }
+    const status = StorageUtil.local.getItem("status");
+    const [userInfo, setUserInfo] = useState({} as any);
+    const userId = StorageUtil.local.getId();
+
     useEffect(() => {
         const accessToken = StorageUtil.local.getAccessToken()
         if (accessToken == null) {
             navigate(`/login`);
         }
-    });
+
+        const fetchUserData = async () => {
+            const userData = await getUserDetail(Number(userId));
+            setUserInfo(userData);
+        }
+        fetchUserData();
+    }, []);
 
     const doJoin = () => {
         navigate("/join");
@@ -25,11 +37,31 @@ const MainPage = (props: PageTagProps) => {
     return (
         <>
             <Header title={props.title} />
-            <main style={{textAlign: 'center'}}>
+            <main>
                 <div>
-                    <p><b>{userProfile.email}님</b>, 환영합니다.</p>
+                    <Card>
+                        <CardBody>
+                            <CardText>
+                                <b>이름</b> : {userInfo.name}
+                            </CardText>
+                            <CardText>
+                                <b>이메일</b> : {userInfo.email}
+                            </CardText>
+                            <CardText>
+                                <b>또래</b> : {userInfo.birthyear}
+                            </CardText>
+                            <CardText>
+                                <b>소속 공동체</b> : {FindCommunity(userInfo.community)}
+                            </CardText>
+                            <div style={{"textAlign": "center", "marginTop": "40px"}}>
+                                <Button onClick={ e => navigate(`/mypage/${userId}`)}>
+                                    내 정보 수정
+                                </Button>
+                            </div>
+                        </CardBody>
+                    </Card>
                     <div>
-                        {userProfile.status === "new" ?
+                        {status === "new" ?
                             <>
                                 <p>Oops! 회원가입을 마무리 하지 못했군요?</p>
                                 <Button color={"primary"} onClick={e => doJoin()}>회원가입</Button>
