@@ -12,6 +12,7 @@ import KakaoRedirectPage from './pages/login/KakaoRedirectPage';
 import KakaoLoginPage from './pages/login/KakaoLoginPage';
 import Test from './pages/Test';
 import SignUpPage from './pages/join/SignUpPage';
+import CrewDetailPage from './pages/CrewDetailPage';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -111,6 +112,7 @@ function App() {
                         <Route path={"/login/kakao"} element={<KakaoLoginPage title={"카카오 로그인 페이지"} />} />
                         <Route path={"/login/kakao/callback"} element={<KakaoRedirectPage title={"카카오 리다이렉트 페이지"} />} />
                         <Route path={"/test"} element={<Test />} />
+                        <Route path={"/crew_detail"} element={<CrewDetailPage title={"크루 상세설명"} />} />
                     </Routes>
                     <footer className={"mainFooter"}>
                         <MainButtonGroup>
