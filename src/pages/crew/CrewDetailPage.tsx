@@ -7,20 +7,20 @@ import { getCrewDetail } from "../../api/CrewApi";
 import React, {useEffect, useState} from "react";
 import { useParams } from 'react-router';
 
+//{JSON.stringify(crewData)}
+
 const CrewTitle = styled.div`
  height : 50px;
   width: 100%;
  font-size : 30px;
- margin-bottom: 10px;
+ margin-bottom: 20px;
   border:1px;
-  border-style: solid;
-  border-color: red;
   display: flex;
   justify-content: space-between;
 `
 const CrewShotExplain = styled.div`
   height : 40px;
-  font-size : 18px;
+  font-size : 20px;
   margin-bottom : 10px;
   margin-left : 10px;
 `
@@ -66,11 +66,11 @@ const CrewDetailPage = (props: PageTagProps) => {
     const params = useParams();
     const [scheduleClass, setScheduleClass] = useState(1);
     const [dayClass, setDayClass] = useState(1);
-    const [userData, setUserData] = useState({} as any);
+    const [crewData, setCrewData] = useState({} as any);
     useEffect(()  => {
         const fetchData = async () => {
             const data = await getCrewDetail(Number(params.id));
-            setUserData(data);
+            setCrewData(data);
         }
         fetchData();
     }, []);
@@ -82,7 +82,7 @@ const CrewDetailPage = (props: PageTagProps) => {
             <main>
                 <CrewTitle>
                     <div>
-                        크루명
+                        {crewData.name}
                     </div>
                     <div>
                         <Button
@@ -96,13 +96,13 @@ const CrewDetailPage = (props: PageTagProps) => {
                     </div>
                 </CrewTitle>
                 <CrewShotExplain>
-                    "크루 한 줄 소개"
+                    " {crewData.abstract} "
                 </CrewShotExplain>
                 <CrewDetailExplain>
-                    {JSON.stringify(userData)}
                     <p>
-                        {userData.description}
+                        {crewData.description}
                     </p>
+                    <br />
                     <p> 크루 소개(상세) <br />
                         크루 상세 설명과 사진 <br />
                         <img src={NoImage}/>
