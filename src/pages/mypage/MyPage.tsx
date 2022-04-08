@@ -72,7 +72,7 @@ const MainPage = (props: PageTagProps) => {
                     </Card>
                 </div>
                 <div style={{"float": "right", "marginTop": "5px", "bottom": "50px"}}>
-                    <p style={{"fontSize":"11px", "color": "#ced4da", "fontStyle": "italic"}}>Created By. Street Coding Crew</p>
+                    <p style={{"fontSize":"11px", "color": "#ced4da", "fontStyle": "italic"}}>Created By. Street Coding Fighter Crew</p>
                 </div>
             </main>
         </>
