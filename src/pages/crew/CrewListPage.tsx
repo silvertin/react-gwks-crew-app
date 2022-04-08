@@ -37,7 +37,7 @@ const CrewListPage = (props: PageTagProps) => {
                         <CrewCart>
                             <CardBody>
                                 <CardTitle tag="h5">
-                                    {item.name}
+                                    {item.nickname || item.name}&nbsp;<span style={{"color": "grey", "fontSize": "13px"}}>({item.name})</span>
                                 </CardTitle>
                                 <CardSubtitle
                                     className="mb-2 text-muted"

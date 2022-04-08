@@ -24,7 +24,7 @@ const SignUpPage = (props: PageTagProps) => {
     const [name, setName] = useState("");
     const [community, setCommunity] = useState(0);
     const [birthyear, setBirthyear] = useState("");
-    const [nickName, setNickName] = useState("");
+    const [nickname, setNickname] = useState("");
 
     const DoCancelJoin = () => {
         if (window.confirm("가입을 취소하시겠습니다?😥 \n괜찮아요, 다시 가입할수 있어요")) {
@@ -34,7 +34,7 @@ const SignUpPage = (props: PageTagProps) => {
 
     const DoAgreeJoin = () => {
         const joinService = new JoinService();
-        const user = {email, name, community, birthyear, nickName};
+        const user = {email, name, community, birthyear, nickname};
         const isAccess = joinService.doValidation(user);
         if (isAccess) {
             if (window.confirm("가입을 승인하시겠습니다?")) {
@@ -117,8 +117,8 @@ const SignUpPage = (props: PageTagProps) => {
                             <Input
                                 id="userNickName"
                                 name="nickName"
-                                value={nickName}
-                                onChange={e => setNickName(e.target.value)}
+                                value={nickname}
+                                onChange={e => setNickname(e.target.value)}
                                 placeholder="닉네임을 입력해주세요."
                             />
                         </FormGroup>

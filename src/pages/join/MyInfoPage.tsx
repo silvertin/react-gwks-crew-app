@@ -24,7 +24,7 @@ const MyInfoPage = (props: PageTagProps) => {
     const [name, setName] = useState("");
     const [community, setCommunity] = useState(0);
     const [birthyear, setBirthyear] = useState("");
-    const [nickName, setNickName] = useState("");
+    const [nickname, setNickname] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,7 +34,7 @@ const MyInfoPage = (props: PageTagProps) => {
             setName(userData.name);
             setCommunity(userData.community);
             setBirthyear(userData.birthyear);
-            setNickName(userData.nickName);
+            setNickname(userData.nickName);
         };
 
         fetchData();
@@ -50,7 +50,7 @@ const MyInfoPage = (props: PageTagProps) => {
 
     const DoAgreeJoin = () => {
         const joinService = new JoinService();
-        const user = {email, name, community, birthyear, nickName};
+        const user = {email, name, community, birthyear, nickname};
         const isAccess = joinService.doValidation(user);
         if (isAccess) {
             if (window.confirm("수정 하시겠습니까?")) {
@@ -128,8 +128,8 @@ const MyInfoPage = (props: PageTagProps) => {
                             <Input
                                 id="userNickName"
                                 name="nickName"
-                                value={nickName}
-                                onChange={e => setNickName(e.target.value)}
+                                value={nickname}
+                                onChange={e => setNickname(e.target.value)}
                                 placeholder="닉네임을 입력해주세요."
                             />
                         </FormGroup>

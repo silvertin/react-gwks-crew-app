@@ -1,25 +1,12 @@
 import styled from 'styled-components';
-import {
-    Badge,
-    Button,
-    Card,
-    CardBody,
-    CardHeader,
-    CardText,
-    CardTitle,
-    Input,
-    ListGroup,
-    ListGroupItem
-} from "reactstrap";
+import {Button, Card, CardBody, CardHeader, CardText, CardTitle} from "reactstrap";
 import Header from "../../layout/Header";
-import { PageTagProps } from "../interface/PageInterface";
+import {PageTagProps} from "../interface/PageInterface";
 import NoImage from '../../assets/img/no-image-found-360x250-1-300x208.png';
-import { getCrewDetail } from "../../api/CrewApi";
+import {getCrewDetail} from "../../api/CrewApi";
 import React, {useEffect, useState} from "react";
-import { useParams } from 'react-router';
-import {TiUser, TiUserAdd} from 'react-icons/ti';
-
-//{JSON.stringify(crewData)}
+import {useParams} from 'react-router';
+import {TiUserAdd} from 'react-icons/ti';
 
 const CrewTitle = styled.div`
     width: 100%;
@@ -62,7 +49,7 @@ const CrewDetailPage = (props: PageTagProps) => {
     useEffect(()  => {
         const fetchData = async () => {
             const data = await getCrewDetail(Number(params.id));
-            setCrewData(data);
+            setUserData(data);
         }
         fetchData();
     }, []);

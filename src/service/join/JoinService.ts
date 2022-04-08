@@ -5,7 +5,7 @@ interface User {
     name: string,
     community: number,
     birthyear: string,
-    nickName: string
+    nickname: string
 }
 export default class JoinService {
 
@@ -18,7 +18,7 @@ export default class JoinService {
             alert("또래를 입력해주세요.");
             return false;
         }
-        if(params.nickName === '') {
+        if(params.nickname === '') {
             alert("닉네임을 입력해주세요.");
             return false;
         }
