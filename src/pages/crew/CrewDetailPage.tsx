@@ -63,7 +63,6 @@ const CrewDetailPage = (props: PageTagProps) => {
                         {userData.name}
                     </h2>
                 </CrewTitle>
-                <br />
                 <Card>
                     <CardHeader>
                         크루 소개
