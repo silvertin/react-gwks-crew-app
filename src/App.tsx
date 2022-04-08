@@ -1,20 +1,19 @@
-import React from 'react';
-import {Link, Route, Routes } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import {Link, Route, Routes} from 'react-router-dom';
 import styled from 'styled-components';
 import CrewListPage from './pages/crew/CrewListPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/home/HomePage';
 import {TiHome, TiThMenu, TiUserOutline} from "react-icons/ti";
 import './assets/css/main.scss';
-import {Button, ButtonGroup } from 'reactstrap';
 import MyPage from './pages/mypage/MyPage';
 import KakaoRedirectPage from './pages/login/KakaoRedirectPage';
 import KakaoLoginPage from './pages/login/KakaoLoginPage';
 import Test from './pages/Test';
 import SignUpPage from './pages/join/SignUpPage';
 import CrewDetailPage from './pages/crew/CrewDetailPage';
-import { StorageUtil } from './config/BrowserUtil';
-import MyInfoPage from './pages/join/MyInfoPage';
+import {StorageUtil} from './config/BrowserUtil';
+import MyInfoPage from './pages/mypage/MyInfoPage';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -98,6 +97,11 @@ const MainButtonGroup = styled.div`
 `
 
 function App() {
+    useEffect(() => {
+        return (() => {
+            StorageUtil.local.doInitToken();
+        });
+    }, []);
     return (
         <div className="App">
             <Wrapper>

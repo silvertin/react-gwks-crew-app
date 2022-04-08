@@ -1,19 +1,12 @@
-import { PageTagProps } from "../interface/PageInterface";
+import {PageTagProps} from "../interface/PageInterface";
 import Header from "../../layout/Header";
 import styled from "styled-components";
-import { getCrewList } from "../../api/CrewApi";
-import { useEffect, useState } from "react";
-import CrewList from "../../components/home/CrewList";
-import React from "react";
-import {Badge, Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Col, Row } from "reactstrap";
+import {getCrewList} from "../../api/CrewApi";
+import React, {useEffect, useState} from "react";
+import {Card, CardBody, CardSubtitle, CardText, CardTitle, Col, Row} from "reactstrap";
 import NoImage from '../../assets/img/no-image-found-360x250-1-300x208.png'
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-// const RowWrapper =  styled.div`
-//   .cardRow {
-//     margin-bottom: 10px;
-//   }
-// `
 const CrewCart = styled(Card)`
   margin-bottom: 10px;
 `
@@ -31,7 +24,7 @@ const GetCardList = (list: any) => {
     return list.map((item: any) => {
         return (
             <React.Fragment>
-                <CrewCart key={item.id}>
+                <CrewCart key={`card${item.id}`}>
                     <CardBody>
                         <Row
                             key={`cardRow${item.id}`}

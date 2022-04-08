@@ -34,7 +34,7 @@ const MyInfoPage = (props: PageTagProps) => {
             setName(userData.name);
             setCommunity(userData.community);
             setBirthyear(userData.birthyear);
-            setNickname(userData.nickName);
+            setNickname(userData.nickname);
         };
 
         fetchData();

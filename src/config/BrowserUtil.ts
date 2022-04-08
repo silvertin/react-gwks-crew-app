@@ -22,6 +22,7 @@ export const StorageUtil = {
             if (decodeToken.exp != null){
                 let now = new Date().getTime()  // 현재 시간
                 let timeDiff = (decodeToken.exp * 1000) - now // 토큰의 남은 수명
+                console.log(timeDiff)
                 if (timeDiff < 0) {
                     // 토큰이 만료됨에 따라, 사용자 정보
                     localStorage.clear();

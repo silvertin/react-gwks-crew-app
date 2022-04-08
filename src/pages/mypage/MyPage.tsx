@@ -52,6 +52,9 @@ const MainPage = (props: PageTagProps) => {
                     <Card>
                         <CardBody>
                             <CardText>
+                                <b>닉네임</b> : {userInfo.nickname}
+                            </CardText>
+                            <CardText>
                                 <b>이름</b> : {userInfo.name}
                             </CardText>
                             <CardText>
